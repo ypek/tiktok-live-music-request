@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Request Queue</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #1c1c1c;
+            color: white;
+            text-align: center;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #333;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+        .container::-webkit-scrollbar {
+            width: 8px;
+        }
+        .container::-webkit-scrollbar-thumb {
+            background-color: #555;
+            border-radius: 10px;
+        }
+        .container::-webkit-scrollbar-thumb:hover {
+            background-color: #888;
+        }
+        .song-queue {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        .song {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #444;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .song img {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+        button {
+            background: #ff4757;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #ff6b81;
+        }
+        input {
+            padding: 10px;
+            width: 80%;
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            background: #2c2c2c;
+            color: white;
+        }
+        a {
+            color: #1e90ff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        a:hover {
+            color: #00bfff;
+        }
+        #overlayLink {
+            margin-top: 20px;
+        }
+        .copy-notification {
+            margin-top: 10px;
+            color: #32CD32;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="Logo" style="max-width: 150px; display: block; margin: 0 auto; filter: brightness(0) invert(1);">
+        <h1>Conectar ao TikTok Live</h1>
+        <input type="text" id="tiktokUsername" placeholder="Digite o @ do TikTok">
+        <button id="connectButton">Conectar à Live</button>
+
+        <p id="status">Aguardando conexão...</p>
+
+        <div id="overlayLink" style="display: none;">
+            <p>Link da overlay para o OBS: <a id="copyOverlayLink">Copiar link</a></p>
+            <p id="copyNotification" class="copy-notification" style="display: none;">Link copiado para a área de transferência!</p>
+        </div>
+
+        <h2>Adicionar Música Manualmente</h2>
+        <input type="text" id="manualSongTitle" placeholder="Digite o título da música">
+        <button id="addManualSongButton">Adicionar Música</button>
+
+        <h1>Fila de Pedidos de Músicas</h1>
+        <ul class="song-queue" id="songQueue"></ul>
+    </div>
+
+    <!-- Inclui o arquivo renderer.js -->
+    <script src="renderer.js"></script>
+</body>
+</html>

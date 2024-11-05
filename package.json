@@ -1,0 +1,56 @@
+{
+    "name": "tiktok-live-music-request",
+    "version": "1.0.0",
+    "description": "Aplicativo para gerenciar pedidos de músicas ao vivo no TikTok",
+    "author": "YpekDev",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "make": "electron-forge make"
+    },
+    "dependencies": {
+        "axios": "^0.21.1",
+        "express": "^4.17.1",
+        "socket.io": "^4.0.1",
+        "tiktok-live-connector": "^1.2.0"
+    },
+    "devDependencies": {
+        "@electron-forge/cli": "^6.0.0-beta.58",
+        "@electron-forge/maker-deb": "^6.0.0-beta.58",
+        "@electron-forge/maker-rpm": "^6.0.0-beta.58",
+        "@electron-forge/maker-squirrel": "^6.0.0-beta.58",
+        "@electron-forge/maker-zip": "^6.0.0-beta.58",
+        "electron": "^33.1.0"
+    },
+    "config": {
+        "forge": {
+            "packagerConfig": {},
+            "makers": [
+                {
+                    "name": "@electron-forge/maker-squirrel",
+                    "config": {}
+                },
+                {
+                    "name": "@electron-forge/maker-zip",
+                    "platforms": [
+                        "darwin"
+                    ]
+                },
+                {
+                    "name": "@electron-forge/maker-deb",
+                    "config": {}
+                },
+                {
+                    "name": "@electron-forge/maker-rpm",
+                    "config": {}
+                }
+            ],
+            "externalModules": [
+                "express",
+                "axios",
+                "socket.io",
+                "tiktok-live-connector"
+            ]
+        }
+    }
+}
